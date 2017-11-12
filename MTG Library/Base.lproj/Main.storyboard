@@ -1,26 +1,242 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MJz-YU-mV1">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Card Table View Controller-->
+        <scene sceneID="cqz-hn-56s">
+            <objects>
+                <tableViewController id="MJz-YU-mV1" customClass="CardTableViewController" customModule="MTG_Library" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fI5-8l-3dn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" rowHeight="300" id="mon-oU-eop" customClass="CardTableViewCell" customModule="MTG_Library" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mon-oU-eop" id="bRL-Y2-VKV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="299"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uCk-VI-Cqi">
+                                            <rect key="frame" x="9" y="9" width="396" height="65"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Card Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2b-T7-Pe6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxA-b8-NYZ" userLabel="Type Label">
+                                                    <rect key="frame" x="0.0" y="23" width="396" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NR-m6-3ZC" userLabel="Text Label">
+                                                    <rect key="frame" x="0.0" y="44" width="396" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uCk-VI-Cqi" firstAttribute="leading" secondItem="bRL-Y2-VKV" secondAttribute="leadingMargin" constant="1" id="ec6-Vi-20T"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uCk-VI-Cqi" secondAttribute="trailing" constant="1" id="m8c-jW-EtE"/>
+                                        <constraint firstItem="uCk-VI-Cqi" firstAttribute="top" secondItem="bRL-Y2-VKV" secondAttribute="topMargin" constant="1" id="msb-hr-l4S"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cardNameLabel" destination="e2b-T7-Pe6" id="0sR-az-BfI"/>
+                                    <outlet property="cardTextLabel" destination="7NR-m6-3ZC" id="n4g-Af-ZiA"/>
+                                    <outlet property="cardTypeLabel" destination="QxA-b8-NYZ" id="1fS-ut-FhZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MJz-YU-mV1" id="mLr-Ve-uq3"/>
+                            <outlet property="delegate" destination="MJz-YU-mV1" id="Xef-DP-JOU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qve-ud-nLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-588" y="142"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MTG_Library" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-jv-sq8">
+                                <rect key="frame" x="20" y="20" width="374" height="716"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Name" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="39S-TE-hYT">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fFy-wS-Tux"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yjL-O3-W8p">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="666"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" rowHeight="100" id="GAr-nQ-BE9" customClass="CardTableViewCell" customModule="MTG_Library" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="374" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GAr-nQ-BE9" id="T1Y-84-UsA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="99"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dz6-Nb-my5">
+                                                            <rect key="frame" x="9" y="9" width="356" height="70"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Card Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-91-h83">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="356" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsc-jM-JWa" userLabel="Type Label">
+                                                                    <rect key="frame" x="0.0" y="28" width="356" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23O-dj-lkU" userLabel="Text Label">
+                                                                    <rect key="frame" x="0.0" y="49" width="356" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="dz6-Nb-my5" secondAttribute="trailing" constant="1" id="JtK-R6-X0i"/>
+                                                        <constraint firstItem="dz6-Nb-my5" firstAttribute="top" secondItem="T1Y-84-UsA" secondAttribute="topMargin" constant="1" id="SIP-wR-hc3"/>
+                                                        <constraint firstItem="dz6-Nb-my5" firstAttribute="leading" secondItem="T1Y-84-UsA" secondAttribute="leadingMargin" constant="1" id="xRF-0I-KKb"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="cardNameLabel" destination="23O-dj-lkU" id="dxi-Sx-lK3"/>
+                                                    <outlet property="cardTextLabel" destination="23O-dj-lkU" id="fuf-UI-5QF"/>
+                                                    <outlet property="cardTypeLabel" destination="dsc-jM-JWa" id="zqG-ul-1nN"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="39S-TE-hYT" firstAttribute="leading" secondItem="1eT-jv-sq8" secondAttribute="leading" id="7B0-U4-1nd"/>
+                                    <constraint firstItem="39S-TE-hYT" firstAttribute="top" secondItem="1eT-jv-sq8" secondAttribute="top" id="E0H-PP-UJ0"/>
+                                    <constraint firstAttribute="trailing" secondItem="39S-TE-hYT" secondAttribute="trailing" id="V6z-og-E7U"/>
+                                    <constraint firstItem="yjL-O3-W8p" firstAttribute="leading" secondItem="39S-TE-hYT" secondAttribute="leading" id="gfY-BS-vdZ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1eT-jv-sq8" secondAttribute="trailing" id="BiD-hk-GHK"/>
+                            <constraint firstItem="1eT-jv-sq8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="WAz-G3-aKj"/>
+                            <constraint firstItem="1eT-jv-sq8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fNx-6H-P2a"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1eT-jv-sq8" secondAttribute="bottom" id="w1t-Tt-IA3"/>
+                            <constraint firstItem="1eT-jv-sq8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wiC-NA-uVI"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="92.753623188405811" y="139.4021739130435"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KNs-xt-qDD">
+            <objects>
+                <viewController id="0Tb-Oc-gWQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="41G-dx-BR2"/>
+                        <viewControllerLayoutGuide type="bottom" id="2MF-vp-S9h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AAH-C2-HRG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjN-0A-ja4">
+                                <rect key="frame" x="20" y="20" width="374" height="716"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0T6-mn-gZE">
+                                        <rect key="frame" x="62" y="8" width="250" height="350"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="1Eu-3H-z9u"/>
+                                            <constraint firstAttribute="height" constant="350" id="Q6A-RJ-s3b"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQs-XX-42K">
+                                        <rect key="frame" x="12" y="374" width="350" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="eT7-7w-364"/>
+                                            <constraint firstAttribute="width" constant="350" id="nJQ-ZZ-UzM"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TCG Prices" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBI-dE-WNB">
+                                        <rect key="frame" x="12" y="640" width="350" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="Tii-sa-SIh"/>
+                                            <constraint firstAttribute="height" constant="50" id="iJc-RP-FDb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cBI-dE-WNB" firstAttribute="top" secondItem="CQs-XX-42K" secondAttribute="bottom" constant="16" id="5KA-hM-sky"/>
+                                    <constraint firstAttribute="bottom" secondItem="0T6-mn-gZE" secondAttribute="bottom" constant="358" id="E2p-Hb-sht"/>
+                                    <constraint firstItem="cBI-dE-WNB" firstAttribute="centerX" secondItem="fjN-0A-ja4" secondAttribute="centerX" id="RGM-RL-Odh"/>
+                                    <constraint firstItem="0T6-mn-gZE" firstAttribute="top" secondItem="fjN-0A-ja4" secondAttribute="top" constant="8" id="bT4-Ge-I6H"/>
+                                    <constraint firstItem="CQs-XX-42K" firstAttribute="top" secondItem="0T6-mn-gZE" secondAttribute="bottom" constant="16" id="iYU-SH-DfX"/>
+                                    <constraint firstItem="CQs-XX-42K" firstAttribute="centerX" secondItem="fjN-0A-ja4" secondAttribute="centerX" id="m7O-Sb-Zn2"/>
+                                    <constraint firstItem="0T6-mn-gZE" firstAttribute="centerX" secondItem="CQs-XX-42K" secondAttribute="centerX" id="mgZ-oz-Jdd"/>
+                                    <constraint firstAttribute="trailing" secondItem="0T6-mn-gZE" secondAttribute="trailing" constant="67" id="r0a-J8-yyB"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fjN-0A-ja4" secondAttribute="trailing" id="Xlz-3G-fYR"/>
+                            <constraint firstItem="2MF-vp-S9h" firstAttribute="top" secondItem="fjN-0A-ja4" secondAttribute="bottom" id="egD-yq-PwQ"/>
+                            <constraint firstItem="fjN-0A-ja4" firstAttribute="centerX" secondItem="AAH-C2-HRG" secondAttribute="centerX" id="hZv-JV-kZ4"/>
+                            <constraint firstItem="fjN-0A-ja4" firstAttribute="top" secondItem="41G-dx-BR2" secondAttribute="bottom" id="i0E-Hj-1uM"/>
+                            <constraint firstItem="fjN-0A-ja4" firstAttribute="leading" secondItem="AAH-C2-HRG" secondAttribute="leadingMargin" id="y0H-7r-Czn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvA-Ls-XuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="773.91304347826087" y="139.4021739130435"/>
         </scene>
     </scenes>
 </document>

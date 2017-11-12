@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4311FB7B23600755E0C /* CardTableViewController.swift */; };
+		C16AC4341FB7B24F00755E0C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4331FB7B24F00755E0C /* Card.swift */; };
 		C179373E1FABBE4000DCDCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */; };
 		C17937401FABBE4000DCDCA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179373F1FABBE4000DCDCA6 /* ViewController.swift */; };
 		C17937431FABBE4000DCDCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17937411FABBE4000DCDCA6 /* Main.storyboard */; };
 		C17937451FABBE4000DCDCA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C17937441FABBE4000DCDCA6 /* Assets.xcassets */; };
 		C17937481FABBE4000DCDCA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17937461FABBE4000DCDCA6 /* LaunchScreen.storyboard */; };
 		C17937531FABBE4100DCDCA6 /* MTG_LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17937521FABBE4100DCDCA6 /* MTG_LibraryTests.swift */; };
+		C179375E1FABF6DC00DCDCA6 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179375D1FABF6DC00DCDCA6 /* CardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C16AC4311FB7B23600755E0C /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewController.swift; path = ../CardTableViewController.swift; sourceTree = "<group>"; };
+		C16AC4331FB7B24F00755E0C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
 		C179373A1FABBE4000DCDCA6 /* MTG Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTG Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C179373F1FABBE4000DCDCA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		C179374E1FABBE4100DCDCA6 /* MTG LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MTG LibraryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17937521FABBE4100DCDCA6 /* MTG_LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTG_LibraryTests.swift; sourceTree = "<group>"; };
 		C17937541FABBE4100DCDCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C179375D1FABF6DC00DCDCA6 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +85,12 @@
 			children = (
 				C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */,
 				C179373F1FABBE4000DCDCA6 /* ViewController.swift */,
+				C16AC4331FB7B24F00755E0C /* Card.swift */,
+				C179375D1FABF6DC00DCDCA6 /* CardTableViewCell.swift */,
+				C16AC4311FB7B23600755E0C /* CardTableViewController.swift */,
 				C17937411FABBE4000DCDCA6 /* Main.storyboard */,
-				C17937441FABBE4000DCDCA6 /* Assets.xcassets */,
 				C17937461FABBE4000DCDCA6 /* LaunchScreen.storyboard */,
+				C17937441FABBE4000DCDCA6 /* Assets.xcassets */,
 				C17937491FABBE4000DCDCA6 /* Info.plist */,
 			);
 			path = "MTG Library";
@@ -200,6 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C17937401FABBE4000DCDCA6 /* ViewController.swift in Sources */,
+				C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */,
+				C16AC4341FB7B24F00755E0C /* Card.swift in Sources */,
+				C179375E1FABF6DC00DCDCA6 /* CardTableViewCell.swift in Sources */,
 				C179373E1FABBE4000DCDCA6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "MTG Library/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.MTG-Library";
@@ -353,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "MTG Library/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.MTG-Library";
@@ -408,6 +422,7 @@
 				C17937591FABBE4100DCDCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C179375A1FABBE4100DCDCA6 /* Build configuration list for PBXNativeTarget "MTG LibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +431,7 @@
 				C179375C1FABBE4100DCDCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
