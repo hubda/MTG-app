@@ -53,6 +53,10 @@ class CardTableViewController: UITableViewController {
         cell.cardTextLabel.text = card.rulesText
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -89,15 +93,16 @@ class CardTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+    /*// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        segue.identifier = "CardInfoSegue"
+    }*/
+    
+    //MARK: Actions
     
     //MARK: Private Methods
     private func loadSampleCards() {

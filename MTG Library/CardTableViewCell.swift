@@ -10,10 +10,6 @@ import UIKit
 
 class CardTableViewCell: UITableViewCell {
     //MARK: Properties
-    /*@IBOutlet weak var cardNameLabel: UILabel!
-    @IBOutlet weak var cardTypeLabel: UILabel!
-    @IBOutlet weak var cardTextLabel: UILabel!*/
-    
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardTypeLabel: UILabel!
     @IBOutlet weak var cardTextLabel: UILabel!

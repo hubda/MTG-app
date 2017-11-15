@@ -10,7 +10,7 @@
 		C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4311FB7B23600755E0C /* CardTableViewController.swift */; };
 		C16AC4341FB7B24F00755E0C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4331FB7B24F00755E0C /* Card.swift */; };
 		C179373E1FABBE4000DCDCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */; };
-		C17937401FABBE4000DCDCA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179373F1FABBE4000DCDCA6 /* ViewController.swift */; };
+		C17937401FABBE4000DCDCA6 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179373F1FABBE4000DCDCA6 /* CardViewController.swift */; };
 		C17937431FABBE4000DCDCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17937411FABBE4000DCDCA6 /* Main.storyboard */; };
 		C17937451FABBE4000DCDCA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C17937441FABBE4000DCDCA6 /* Assets.xcassets */; };
 		C17937481FABBE4000DCDCA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17937461FABBE4000DCDCA6 /* LaunchScreen.storyboard */; };
@@ -33,7 +33,7 @@
 		C16AC4331FB7B24F00755E0C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
 		C179373A1FABBE4000DCDCA6 /* MTG Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTG Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C179373F1FABBE4000DCDCA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C179373F1FABBE4000DCDCA6 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		C17937421FABBE4000DCDCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C17937441FABBE4000DCDCA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C17937471FABBE4000DCDCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */,
-				C179373F1FABBE4000DCDCA6 /* ViewController.swift */,
+				C179373F1FABBE4000DCDCA6 /* CardViewController.swift */,
 				C16AC4331FB7B24F00755E0C /* Card.swift */,
 				C179375D1FABF6DC00DCDCA6 /* CardTableViewCell.swift */,
 				C16AC4311FB7B23600755E0C /* CardTableViewController.swift */,
@@ -208,7 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C17937401FABBE4000DCDCA6 /* ViewController.swift in Sources */,
+				C17937401FABBE4000DCDCA6 /* CardViewController.swift in Sources */,
 				C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */,
 				C16AC4341FB7B24F00755E0C /* Card.swift in Sources */,
 				C179375E1FABF6DC00DCDCA6 /* CardTableViewCell.swift in Sources */,
