@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class CardTableViewController: UITableViewController {
     //MARK: Properties
@@ -15,14 +16,8 @@ class CardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Load the sample data.
+        //Load the sample cards.
         loadSampleCards()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,15 +43,36 @@ class CardTableViewController: UITableViewController {
         }
         
         let card = cards[indexPath.row]
+        var cardSuperTypeString: String = ""
+        var cardSubTypeString: String = ""
+        var cardTypeString: String = ""
+        for i in 0..<card.superType.count {
+            cardSuperTypeString += "\(card.superType[i]) "
+        }
+        
+        if card.subType != nil {
+            for i in 0..<card.subType!.count {
+            cardSubTypeString += "\(card.subType![i]) "
+            }
+            cardTypeString += cardSubTypeString
+        }
+        cell.cardTypeLabel.text = cardTypeString
         cell.cardNameLabel.text = card.name
-        cell.cardTypeLabel.text = card.type[0] + " " + card.type[1] + " - " + card.type[2]
-        cell.cardTextLabel.text = card.rulesText
+        //cell.cardTextLabel.text = card.rulesText
+        cell.index = indexPath.row
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //Set the height of the table cells.
         return 70
     }
+    
+    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Perform a segue to the detailed card view after tapping on a cell.
+        //let card = cards[indexPath.row]
+        //self.performSegue(withIdentifier: "cardInfoSegue", sender: card)
+    }*/
 
     /*
     // Override to support conditional editing of the table view.
@@ -93,16 +109,27 @@ class CardTableViewController: UITableViewController {
     }
     */
 
-    /*// MARK: - Navigation
+    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        segue.identifier = "CardInfoSegue"
-    }*/
+        super.prepare(for: segue, sender: sender)
+        //Send the card info to the new view.
+        if let cardCell = sender as? CardTableViewCell {
+            if let cvc = segue.destination as? CardViewController {
+                let card: Card = cards[cardCell.index]
+                cvc.card = card
+            }
+        }
+        else {
+            return
+        }
+    }
     
     //MARK: Actions
+    /*@IBAction func unwindToCardList(sender: UIStoryboardSegue) {
+        
+    }*/
     
     //MARK: Private Methods
     private func loadSampleCards() {
@@ -111,41 +138,56 @@ class CardTableViewController: UITableViewController {
         let swampImage = UIImage(named: "Swamp")
         let mountainImage = UIImage(named: "Mountain")
         let forestImage = UIImage(named: "Forest")
+        let animarImage = UIImage(named: "Animar")
         
-        let plainsType = ["Basic", "Land", "Plains"]
-        let islandType = ["Basic", "Land", "Island"]
-        let swampType = ["Basic", "Land", "Swamp"]
-        let mountainType = ["Basic", "Land", "Mountain"]
-        let forestType = ["Basic", "Land", "Forest"]
+        let plainsSuperType = ["Basic", "Land"]
+        let islandSuperType = ["Basic", "Land"]
+        let swampSuperType = ["Basic", "Land"]
+        let mountainSuperType = ["Basic", "Land"]
+        let forestSuperType = ["Basic", "Land"]
+        let animarSuperType = ["Legendary", "Creature"]
+        
+        let plainsSubType = ["Plains"]
+        let islandSubType = ["Island"]
+        let swampSubType = ["Swamp"]
+        let mountainSubType = ["Mountain"]
+        let forestSubType = ["Forest"]
+        let animarSubType = ["Elemental"]
         
         let plainsText = "{T}: Add {W} to your mana pool"
         let islandText = "{T}: Add {U} to your mana pool"
         let swampText = "{T}: Add {B} to your mana pool"
         let mountainText = "{T}: Add {R} to your mana pool"
         let forestText = "{T}: Add {G} to your mana pool"
+        let animarText = "Protection from white and from black Whenever you cast a creature spell, put a +1/+1 counter on Animar, Soul of Elements. Creature spells you cast cost {1} less to cast for each +1/+1 counter on Animar."
         
         let legality = ["Standard", "Modern", "Legacy", "Vintage", "Commander"]
+        let animarLegality = ["Legacy",  "Vintage", "Commander"]
         
-        guard let plains = Card(name: "Plains", color: "C", type: plainsType, rulesText: plainsText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: plainsImage, prices: nil) else {
+        guard let plains = Card(name: "Plains", color: "C", superType: plainsSuperType, subType: plainsSubType, rulesText: plainsText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: plainsImage, prices: nil) else {
             fatalError("Unable to instantiate Plains")
         }
         
-        guard let island = Card(name: "Island", color: "C", type: islandType, rulesText: islandText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: islandImage, prices: nil) else {
+        guard let island = Card(name: "Island", color: "C", superType: islandSuperType, subType: islandSubType, rulesText: islandText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: islandImage, prices: nil) else {
             fatalError("Unable to instantiate Island")
         }
         
-        guard let swamp = Card(name: "Swamp", color: "C", type: swampType, rulesText: swampText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: swampImage, prices: nil) else {
+        guard let swamp = Card(name: "Swamp", color: "C", superType: swampSuperType, subType: swampSubType, rulesText: swampText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: swampImage, prices: nil) else {
             fatalError("Unable to instantiate Swamp")
         }
         
-        guard let mountain = Card(name: "Mountain", color: "C", type: mountainType, rulesText: mountainText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: mountainImage, prices: nil) else {
+        guard let mountain = Card(name: "Mountain", color: "C", superType: mountainSuperType, subType: mountainSubType, rulesText: mountainText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: mountainImage, prices: nil) else {
             fatalError("Unable to instantiate Mountain")
         }
         
-        guard let forest = Card(name: "Forest", color: "C", type: forestType, rulesText: forestText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: forestImage, prices: nil) else {
+        guard let forest = Card(name: "Forest", color: "C", superType: forestSuperType, subType: forestSubType, rulesText: forestText, flavorText: nil, CMC: 0, manaCost: nil, power: nil, toughness: nil, set: "IXN", rarity: "C", formats: legality, photo: forestImage, prices: nil) else {
             fatalError("Unable to instantiate Forest")
         }
         
-        cards += [plains, island, swamp, mountain, forest]
+        guard let animar = Card(name: "Animar,  Soul of Elements", color: "URG", superType: animarSuperType, subType: animarSubType, rulesText: animarText, flavorText: nil, CMC: 3, manaCost: "URG", power: 1, toughness: 1, set: "CMD", rarity: "M", formats: animarLegality, photo: animarImage, prices: nil) else {
+            fatalError("Unable to instantiate Plains")
+        }
+        
+        cards += [plains, island, swamp, mountain, forest, animar]
     }
 }

@@ -10,10 +10,10 @@ import UIKit
 
 class CardTableViewCell: UITableViewCell {
     //MARK: Properties
+    var index: Int = 0
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardTypeLabel: UILabel!
-    @IBOutlet weak var cardTextLabel: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +24,4 @@ class CardTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

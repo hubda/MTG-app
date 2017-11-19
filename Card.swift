@@ -12,7 +12,8 @@ class Card {
     //MARK: Properties
     var name: String
     var color: String
-    var type: [String]
+    var superType: [String]
+    var subType: [String]?
     var rulesText: String?
     var flavorText: String?
     var CMC: Int
@@ -26,12 +27,13 @@ class Card {
     var prices: [Float]?
     
     //MARK: Initialization
-    init!(name: String, color: String, type: [String], rulesText: String?, flavorText: String?, CMC: Int, manaCost: String?, power: Int?, toughness: Int?, set: String, rarity: String, formats: [String]?, photo: UIImage?, prices: [Float]?) {
+    init!(name: String, color: String, superType: [String], subType: [String]?, rulesText: String?, flavorText: String?, CMC: Int, manaCost: String?, power: Int?, toughness: Int?, set: String, rarity: String, formats: [String]?, photo: UIImage?, prices: [Float]?) {
         
         //Initialize properties
         self.name = name
         self.color = color
-        self.type = type
+        self.superType = superType
+        self.subType = subType
         self.rulesText = rulesText
         self.flavorText = flavorText
         self.CMC = CMC

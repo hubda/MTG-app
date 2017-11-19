@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,35 +18,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" textLabel="Let-Yo-aQn" detailTextLabel="GxI-nt-PDk" style="IBUITableViewCellStyleSubtitle" id="mon-oU-eop" customClass="CardTableViewCell" customModule="MTG_Library" customModuleProvider="target">
+                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" textLabel="yHJ-eB-Uvz" detailTextLabel="Cmo-3N-CRp" style="IBUITableViewCellStyleSubtitle" id="mon-oU-eop" customClass="CardTableViewCell" customModule="MTG_Library" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mon-oU-eop" id="bRL-Y2-VKV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mon-oU-eop" id="bRL-Y2-VKV" customClass="UIButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Let-Yo-aQn">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yHJ-eB-Uvz">
+                                            <rect key="frame" x="15" y="5" width="132" height="20.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GxI-nt-PDk">
-                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Card Type Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cmo-3N-CRp">
+                                            <rect key="frame" x="15" y="25.333333333333332" width="92" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <connections>
+                                        <action selector="segueToCardInfo:" destination="MJz-YU-mV1" eventType="touchUpInside" id="sH0-v4-zxY"/>
+                                    </connections>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <connections>
-                                    <segue destination="0Tb-Oc-gWQ" kind="show" identifier="CardInfoSegue" trigger="accessoryAction" id="Q4G-4O-VSY"/>
+                                    <outlet property="cardNameLabel" destination="yHJ-eB-Uvz" id="cAn-hZ-ftE"/>
+                                    <outlet property="cardTypeLabel" destination="Cmo-3N-CRp" id="qad-R0-6qK"/>
+                                    <segue destination="0Tb-Oc-gWQ" kind="show" identifier="cardInfoSegue" id="DMV-Aw-fzF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -77,89 +81,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjN-0A-ja4">
-                                <rect key="frame" x="20" y="64" width="374" height="672"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Cp-xU-YyW">
+                                <rect key="frame" x="4" y="438" width="406" height="142.33333333333337"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="0T6-mn-gZE">
-                                        <rect key="frame" x="62" y="8" width="250" height="350"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="1Eu-3H-z9u"/>
-                                            <constraint firstAttribute="height" constant="350" id="Q6A-RJ-s3b"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Cp-xU-YyW">
-                                        <rect key="frame" x="12" y="374" width="171" height="147"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0k-IP-EA3">
-                                                <rect key="frame" x="0.0" y="0.0" width="171" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Mana Cost Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vce-1b-fam">
-                                                <rect key="frame" x="0.0" y="21" width="171" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Types Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKG-jW-zPI">
-                                                <rect key="frame" x="0.0" y="42" width="171" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Rules Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bni-3L-lIF">
-                                                <rect key="frame" x="0.0" y="63" width="171" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Flavor Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdm-rT-Evz">
-                                                <rect key="frame" x="0.0" y="84" width="171" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Power Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-wQ-44U">
-                                                <rect key="frame" x="0.0" y="105" width="171" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Toughness Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDL-OS-J2m">
-                                                <rect key="frame" x="0.0" y="126" width="171" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0k-IP-EA3">
+                                        <rect key="frame" x="0.0" y="0.0" width="406" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Mana Cost Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vce-1b-fam">
+                                        <rect key="frame" x="0.0" y="20.333333333333314" width="406" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Types Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKG-jW-zPI">
+                                        <rect key="frame" x="0.0" y="40.666666666666686" width="406" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Rules Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bni-3L-lIF">
+                                        <rect key="frame" x="0.0" y="61" width="406" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Flavor Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdm-rT-Evz">
+                                        <rect key="frame" x="0.0" y="81.333333333333371" width="406" height="20.333333333333258"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Power Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-wQ-44U">
+                                        <rect key="frame" x="0.0" y="101.66666666666663" width="406" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Legality Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUW-oJ-3Gc">
+                                        <rect key="frame" x="0.0" y="122" width="406" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="0T6-mn-gZE">
+                                <rect key="frame" x="82" y="76" width="250" height="350"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0T6-mn-gZE" secondAttribute="bottom" constant="358" id="E2p-Hb-sht"/>
-                                    <constraint firstItem="0T6-mn-gZE" firstAttribute="top" secondItem="fjN-0A-ja4" secondAttribute="top" constant="8" id="bT4-Ge-I6H"/>
-                                    <constraint firstAttribute="trailing" secondItem="0T6-mn-gZE" secondAttribute="trailing" constant="67" id="r0a-J8-yyB"/>
+                                    <constraint firstAttribute="width" constant="250" id="1Eu-3H-z9u"/>
+                                    <constraint firstAttribute="height" constant="350" id="Q6A-RJ-s3b"/>
                                 </constraints>
-                            </scrollView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="fjN-0A-ja4" secondAttribute="trailing" id="Xlz-3G-fYR"/>
-                            <constraint firstItem="2MF-vp-S9h" firstAttribute="top" secondItem="fjN-0A-ja4" secondAttribute="bottom" id="egD-yq-PwQ"/>
-                            <constraint firstItem="fjN-0A-ja4" firstAttribute="centerX" secondItem="AAH-C2-HRG" secondAttribute="centerX" id="hZv-JV-kZ4"/>
-                            <constraint firstItem="fjN-0A-ja4" firstAttribute="top" secondItem="41G-dx-BR2" secondAttribute="bottom" id="i0E-Hj-1uM"/>
-                            <constraint firstItem="fjN-0A-ja4" firstAttribute="leading" secondItem="AAH-C2-HRG" secondAttribute="leadingMargin" id="y0H-7r-Czn"/>
+                            <constraint firstItem="4Cp-xU-YyW" firstAttribute="top" secondItem="0T6-mn-gZE" secondAttribute="bottom" constant="12" id="Ddu-hK-tTS"/>
+                            <constraint firstAttribute="trailing" secondItem="4Cp-xU-YyW" secondAttribute="trailing" constant="4" id="SLD-jY-kzt"/>
+                            <constraint firstItem="0T6-mn-gZE" firstAttribute="top" secondItem="41G-dx-BR2" secondAttribute="bottom" constant="12" id="TgO-PK-Jic"/>
+                            <constraint firstItem="4Cp-xU-YyW" firstAttribute="leading" secondItem="AAH-C2-HRG" secondAttribute="leading" constant="4" id="axM-zG-K4V"/>
+                            <constraint firstItem="0T6-mn-gZE" firstAttribute="centerX" secondItem="AAH-C2-HRG" secondAttribute="centerX" id="rJL-2P-RbZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cardFlavorText" destination="tdm-rT-Evz" id="Nfo-fD-QKM"/>
                         <outlet property="cardImage" destination="0T6-mn-gZE" id="WSo-hS-jBu"/>
+                        <outlet property="cardLegality" destination="KUW-oJ-3Gc" id="SpY-KD-DHs"/>
                         <outlet property="cardManaCost" destination="Vce-1b-fam" id="b8B-J1-RAm"/>
                         <outlet property="cardName" destination="d0k-IP-EA3" id="Mfm-Jl-wTF"/>
-                        <outlet property="cardPower" destination="T0g-wQ-44U" id="6s3-0a-BYd"/>
+                        <outlet property="cardPowerToughness" destination="T0g-wQ-44U" id="Ja6-9m-sbE"/>
                         <outlet property="cardRulesText" destination="Bni-3L-lIF" id="GJI-Lk-dt8"/>
-                        <outlet property="cardToughness" destination="iDL-OS-J2m" id="Zof-4n-Ywj"/>
                         <outlet property="cardTypes" destination="ZKG-jW-zPI" id="HFa-A5-LYk"/>
                     </connections>
                 </viewController>
