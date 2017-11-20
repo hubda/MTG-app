@@ -19,6 +19,7 @@ class CardViewController: UIViewController {
     @IBOutlet weak var cardFlavorText: UILabel!
     @IBOutlet weak var cardPowerToughness: UILabel!
     @IBOutlet weak var cardLegality: UILabel!
+    @IBOutlet weak var cardSet: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,13 +65,16 @@ class CardViewController: UIViewController {
         cardTypes.text = cardTypeString
         
         //Display the card's mana cost if it has one.
+        card.CMC = card.getCMC()
         if card.manaCost != nil {
-            cardManaCost.text = card.manaCost
+            cardManaCost.text = "\(card.manaCost ?? "")     (\(card.CMC))"
         }
         else {
-            cardManaCost.text = ""
+            cardManaCost.text = "(\(card.CMC))"
         }
         print("Mana cost: \(card.manaCost as Any)")
+        
+        //Display the card's CMC.
         
         //Display the card's rules text if it has any.
         if card.rulesText != nil {
@@ -111,7 +115,7 @@ class CardViewController: UIViewController {
         }
         print("Toughness: \(card.toughness as Any)")
         print("Power/Toughness: \(powerToughness)")
-        cardPowerToughness.text = "\(powerToughness) "
+        cardPowerToughness.text = "\(powerToughness)\n"
         
         //Display the card's legality if it has any.
         var cardLegalityString: String = ""
@@ -131,6 +135,12 @@ class CardViewController: UIViewController {
             cardLegality.text = ""
         }
         print("Legality: \(cardLegalityString)")
+        
+        //Display the card's expansion.
+        cardSet.text = card.set
+        
+        //Display the card's artist.
+        //cardArtist.text = "Illus. by \(card.artist)"
     }
 }
 

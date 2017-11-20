@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,33 +14,59 @@
         <scene sceneID="cqz-hn-56s">
             <objects>
                 <tableViewController id="MJz-YU-mV1" customClass="CardTableViewController" customModule="MTG_Library" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fI5-8l-3dn">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="fI5-8l-3dn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" textLabel="yHJ-eB-Uvz" detailTextLabel="Cmo-3N-CRp" style="IBUITableViewCellStyleSubtitle" id="mon-oU-eop" customClass="CardTableViewCell" customModule="MTG_Library" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" id="mon-oU-eop" customClass="CardTableViewCell" customModule="MTG_Library" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mon-oU-eop" id="bRL-Y2-VKV" customClass="UIButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yHJ-eB-Uvz">
-                                            <rect key="frame" x="15" y="5" width="132" height="20.333333333333332"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Card Type Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cmo-3N-CRp">
-                                            <rect key="frame" x="15" y="25.333333333333332" width="92" height="14.333333333333334"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZG-Nf-dvT">
+                                            <rect key="frame" x="12" y="7.9999999999999964" width="394" height="53.666666666666657"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="06f-cX-7lS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53.666666666666664"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-IY-9Kg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33.333333333333336"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="320" id="Zui-6B-FSF"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncm-Aw-fRQ" userLabel="Card Type Label">
+                                                            <rect key="frame" x="0.0" y="33.333333333333336" width="320" height="20.333333333333329"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="320" id="eDZ-iq-aB6"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0p-RA-cVx">
+                                                    <rect key="frame" x="320" y="0.0" width="74" height="53.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FZG-Nf-dvT" firstAttribute="leading" secondItem="bRL-Y2-VKV" secondAttribute="leadingMargin" constant="4" id="70N-tA-xoC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FZG-Nf-dvT" secondAttribute="bottom" id="833-A2-4HU"/>
+                                        <constraint firstItem="FZG-Nf-dvT" firstAttribute="top" secondItem="bRL-Y2-VKV" secondAttribute="topMargin" id="AZe-Xa-XEb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FZG-Nf-dvT" secondAttribute="trailing" id="qyy-72-E0i"/>
+                                    </constraints>
                                     <connections>
                                         <action selector="segueToCardInfo:" destination="MJz-YU-mV1" eventType="touchUpInside" id="sH0-v4-zxY"/>
                                     </connections>
@@ -49,8 +76,9 @@
                                     <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <connections>
-                                    <outlet property="cardNameLabel" destination="yHJ-eB-Uvz" id="cAn-hZ-ftE"/>
-                                    <outlet property="cardTypeLabel" destination="Cmo-3N-CRp" id="qad-R0-6qK"/>
+                                    <outlet property="cardNameLabel" destination="qRi-IY-9Kg" id="5nO-GJ-vg6"/>
+                                    <outlet property="cardSetLabel" destination="p0p-RA-cVx" id="h6h-TI-O3e"/>
+                                    <outlet property="cardTypeLabel" destination="ncm-Aw-fRQ" id="qEL-cQ-KWk"/>
                                     <segue destination="0Tb-Oc-gWQ" kind="show" identifier="cardInfoSegue" id="DMV-Aw-fzF"/>
                                 </connections>
                             </tableViewCell>
@@ -62,12 +90,142 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Card List" id="IJE-vV-n09">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="lPa-ZT-Cl5"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="tGs-QI-8tg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="tGs-QI-8tg">
+                            <connections>
+                                <segue destination="Ilr-cO-eMZ" kind="popoverPresentation" popoverAnchorBarButtonItem="tGs-QI-8tg" id="jAy-mC-7dq">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qve-ud-nLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="918.84057971014499" y="138.58695652173915"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gZW-Wy-mOH">
+            <objects>
+                <viewController id="Ilr-cO-eMZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gOD-35-std"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ch0-zm-cWk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U2t-Hb-Qpi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-Z6-tte" userLabel="Root Stack View">
+                                <rect key="frame" x="20" y="20" width="374" height="716"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-ac-5fw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="434"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Rules Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tkl-ev-PYK">
+                                        <rect key="frame" x="0.0" y="434" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Types" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mz-nq-RkZ">
+                                        <rect key="frame" x="0.0" y="464" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ivu-hb-bSb" userLabel="Color Stack View">
+                                        <rect key="frame" x="0.0" y="494" width="374" height="112"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="White Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="wfQ-Gz-FJ1">
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="112"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blue Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="KjP-Lk-coJ">
+                                                <rect key="frame" x="64" y="0.0" width="54" height="112"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Black Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="Wkt-0c-LLN">
+                                                <rect key="frame" x="128" y="0.0" width="54" height="112"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="afW-81-c5E">
+                                                <rect key="frame" x="192" y="0.0" width="54" height="112"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Green Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="9fm-iU-aqg">
+                                                <rect key="frame" x="256" y="0.0" width="54" height="112"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Colorless Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="XYr-Xo-TZN">
+                                                <rect key="frame" x="320" y="0.0" width="54" height="112"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WOX-Rr-Cai" userLabel="And/Or Stack View">
+                                        <rect key="frame" x="0.0" y="606" width="374" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4z-qY-cNR">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <state key="normal" title="Multicolor Only"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dH2-zM-hoT">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <state key="normal" title="Selected Only"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="CjO-Ag-Lhl"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zaf-XH-OgZ">
+                                        <rect key="frame" x="0.0" y="656" width="374" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mana Cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-dl-C4L">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIm-22-k3r" userLabel="Enter CMC">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="06F-Jx-njs">
+                                        <rect key="frame" x="0.0" y="686" width="374" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Power" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-eW-hpW">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Toughness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1f-iP-jT1">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SCA-Z6-tte" firstAttribute="top" secondItem="gOD-35-std" secondAttribute="bottom" id="3GJ-7n-7gX"/>
+                            <constraint firstItem="Ch0-zm-cWk" firstAttribute="top" secondItem="SCA-Z6-tte" secondAttribute="bottom" id="Iux-Ul-Lfb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SCA-Z6-tte" secondAttribute="trailing" id="NoD-bg-kIk"/>
+                            <constraint firstItem="SCA-Z6-tte" firstAttribute="leading" secondItem="U2t-Hb-Qpi" secondAttribute="leadingMargin" id="XZE-ad-FUm"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sMs-qK-3Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1903" y="497"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="KNs-xt-qDD">
@@ -81,68 +239,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Cp-xU-YyW">
-                                <rect key="frame" x="4" y="438" width="406" height="142.33333333333337"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xms-Sf-m34">
+                                <rect key="frame" x="20" y="64" width="374" height="512.66666666666663"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0k-IP-EA3">
-                                        <rect key="frame" x="0.0" y="0.0" width="406" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Mana Cost Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vce-1b-fam">
-                                        <rect key="frame" x="0.0" y="20.333333333333314" width="406" height="20.333333333333371"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Types Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKG-jW-zPI">
-                                        <rect key="frame" x="0.0" y="40.666666666666686" width="406" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Rules Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bni-3L-lIF">
-                                        <rect key="frame" x="0.0" y="61" width="406" height="20.333333333333371"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Flavor Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdm-rT-Evz">
-                                        <rect key="frame" x="0.0" y="81.333333333333371" width="406" height="20.333333333333258"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Power Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-wQ-44U">
-                                        <rect key="frame" x="0.0" y="101.66666666666663" width="406" height="20.333333333333371"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Legality Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUW-oJ-3Gc">
-                                        <rect key="frame" x="0.0" y="122" width="406" height="20.333333333333371"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="0T6-mn-gZE">
+                                        <rect key="frame" x="62" y="0.0" width="250" height="350"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="1Eu-3H-z9u"/>
+                                            <constraint firstAttribute="height" constant="350" id="Q6A-RJ-s3b"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Cp-xU-YyW">
+                                        <rect key="frame" x="0.0" y="350" width="374" height="162.66666666666663"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0k-IP-EA3">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Mana Cost Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vce-1b-fam">
+                                                <rect key="frame" x="0.0" y="20.333333333333314" width="374" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Types Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKG-jW-zPI">
+                                                <rect key="frame" x="0.0" y="40.666666666666686" width="374" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Rules Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bni-3L-lIF">
+                                                <rect key="frame" x="0.0" y="61" width="374" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Flavor Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdm-rT-Evz">
+                                                <rect key="frame" x="0.0" y="81.333333333333314" width="374" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Power Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-wQ-44U">
+                                                <rect key="frame" x="0.0" y="101.66666666666663" width="374" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Legality Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUW-oJ-3Gc">
+                                                <rect key="frame" x="0.0" y="122" width="374" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Set Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSV-VS-Wtg" userLabel="Card Set Label">
+                                                <rect key="frame" x="0.0" y="142.33333333333337" width="374" height="20.333333333333258"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="0T6-mn-gZE">
-                                <rect key="frame" x="82" y="76" width="250" height="350"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="1Eu-3H-z9u"/>
-                                    <constraint firstAttribute="height" constant="350" id="Q6A-RJ-s3b"/>
+                                    <constraint firstItem="4Cp-xU-YyW" firstAttribute="leading" secondItem="Xms-Sf-m34" secondAttribute="leading" id="5Lc-q6-dbt"/>
                                 </constraints>
-                            </imageView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4Cp-xU-YyW" firstAttribute="top" secondItem="0T6-mn-gZE" secondAttribute="bottom" constant="12" id="Ddu-hK-tTS"/>
-                            <constraint firstAttribute="trailing" secondItem="4Cp-xU-YyW" secondAttribute="trailing" constant="4" id="SLD-jY-kzt"/>
-                            <constraint firstItem="0T6-mn-gZE" firstAttribute="top" secondItem="41G-dx-BR2" secondAttribute="bottom" constant="12" id="TgO-PK-Jic"/>
-                            <constraint firstItem="4Cp-xU-YyW" firstAttribute="leading" secondItem="AAH-C2-HRG" secondAttribute="leading" constant="4" id="axM-zG-K4V"/>
-                            <constraint firstItem="0T6-mn-gZE" firstAttribute="centerX" secondItem="AAH-C2-HRG" secondAttribute="centerX" id="rJL-2P-RbZ"/>
+                            <constraint firstItem="Xms-Sf-m34" firstAttribute="leading" secondItem="AAH-C2-HRG" secondAttribute="leadingMargin" id="NsW-YY-2Rv"/>
+                            <constraint firstItem="Xms-Sf-m34" firstAttribute="top" secondItem="41G-dx-BR2" secondAttribute="bottom" id="iSY-nQ-0P4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xms-Sf-m34" secondAttribute="trailing" id="wOz-jf-NtG"/>
                         </constraints>
                     </view>
                     <connections>
@@ -153,12 +323,13 @@
                         <outlet property="cardName" destination="d0k-IP-EA3" id="Mfm-Jl-wTF"/>
                         <outlet property="cardPowerToughness" destination="T0g-wQ-44U" id="Ja6-9m-sbE"/>
                         <outlet property="cardRulesText" destination="Bni-3L-lIF" id="GJI-Lk-dt8"/>
+                        <outlet property="cardSet" destination="FSV-VS-Wtg" id="r2t-wz-8FZ"/>
                         <outlet property="cardTypes" destination="ZKG-jW-zPI" id="HFa-A5-LYk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvA-Ls-XuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681.1594202898552" y="139.4021739130435"/>
+            <point key="canvasLocation" x="1890" y="-177"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x6M-U0-wVC">
@@ -180,6 +351,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Black Unselected" width="112" height="112"/>
+        <image name="Blue Unselected" width="112" height="112"/>
         <image name="CardBack" width="170" height="235"/>
+        <image name="Colorless Unselected" width="112" height="112"/>
+        <image name="Green Unselected" width="112" height="112"/>
+        <image name="Red Unselected" width="112" height="112"/>
+        <image name="White Unselected" width="112" height="112"/>
     </resources>
 </document>

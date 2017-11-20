@@ -46,4 +46,22 @@ class Card {
         self.photo = photo
         self.prices = prices
     }
+    
+    //MARK: Functions
+    func getCMC() -> Int {
+        var cmc = 0
+        if manaCost == nil {
+            return cmc
+        }
+        let manaCostArray = Array(manaCost!.characters)
+        for i in 0..<manaCostArray.count {
+            if manaCostArray[i] is Int {
+                cmc += (manaCostArray[i] as? Int)!
+            }
+            else {
+                cmc += 1
+            }
+        }
+        return cmc
+    }
 }

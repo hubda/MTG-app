@@ -11,8 +11,11 @@ import UIKit
 class CardTableViewCell: UITableViewCell {
     //MARK: Properties
     var index: Int = 0
+    
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardTypeLabel: UILabel!
+    @IBOutlet weak var cardSetLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

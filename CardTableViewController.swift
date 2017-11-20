@@ -7,17 +7,25 @@
 //
 
 import UIKit
-import os.log
 
-class CardTableViewController: UITableViewController {
+class CardTableViewController: UITableViewController, UISearchResultsUpdating {
     //MARK: Properties
     var cards = [Card]()
+    var filteredCards = [Card]()
+    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Load the sample cards.
         loadSampleCards()
+        
+        //Configure the search bar.
+        filteredCards = cards
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +40,7 @@ class CardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards.count
+        return filteredCards.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,24 +49,35 @@ class CardTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CardTableViewCell else {
             fatalError("The dequeued cell is not an instance of CardTableViewCell")
         }
+        print("indexPath.row: \(indexPath.row)")
+        print("filteredCards.count: \(filteredCards.count)")
         
-        let card = cards[indexPath.row]
+        let card = filteredCards[indexPath.row]
         var cardSuperTypeString: String = ""
         var cardSubTypeString: String = ""
         var cardTypeString: String = ""
         for i in 0..<card.superType.count {
             cardSuperTypeString += "\(card.superType[i]) "
         }
-        
+        cardTypeString += "\(cardSuperTypeString) - "
         if card.subType != nil {
             for i in 0..<card.subType!.count {
-            cardSubTypeString += "\(card.subType![i]) "
+                cardSubTypeString += "\(card.subType![i]) "
             }
             cardTypeString += cardSubTypeString
         }
         cell.cardTypeLabel.text = cardTypeString
         cell.cardNameLabel.text = card.name
-        //cell.cardTextLabel.text = card.rulesText
+        cell.cardSetLabel.text = card.set
+        if card.rarity == "U" {
+            cell.cardSetLabel.textColor = UIColor.gray
+        }
+        else if card.rarity == "R" {
+            cell.cardSetLabel.textColor = UIColor.yellow
+        }
+        else if card.rarity == "M" {
+            cell.cardSetLabel.textColor = UIColor.orange
+        }
         cell.index = indexPath.row
         return cell
     }
@@ -69,9 +88,7 @@ class CardTableViewController: UITableViewController {
     }
     
     /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Perform a segue to the detailed card view after tapping on a cell.
-        //let card = cards[indexPath.row]
-        //self.performSegue(withIdentifier: "cardInfoSegue", sender: card)
+        //Actions to take place when the cell is clicked.
     }*/
 
     /*
@@ -117,7 +134,7 @@ class CardTableViewController: UITableViewController {
         //Send the card info to the new view.
         if let cardCell = sender as? CardTableViewCell {
             if let cvc = segue.destination as? CardViewController {
-                let card: Card = cards[cardCell.index]
+                let card: Card = filteredCards[cardCell.index]
                 cvc.card = card
             }
         }
@@ -125,11 +142,6 @@ class CardTableViewController: UITableViewController {
             return
         }
     }
-    
-    //MARK: Actions
-    /*@IBAction func unwindToCardList(sender: UIStoryboardSegue) {
-        
-    }*/
     
     //MARK: Private Methods
     private func loadSampleCards() {
@@ -189,5 +201,20 @@ class CardTableViewController: UITableViewController {
         }
         
         cards += [plains, island, swamp, mountain, forest, animar]
+    }
+    
+    //Update the search results whenever as new character is entered.
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredCards = cards.filter { card in
+                let list = card.name.lowercased().contains(searchText.lowercased())
+                print("List: \(list)")
+                return list
+            }
+        }
+        else {
+            filteredCards = cards
+        }
+        tableView.reloadData()
     }
 }
