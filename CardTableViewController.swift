@@ -16,6 +16,7 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        definesPresentationContext = true
         
         //Load the sample cards.
         loadSampleCards()
@@ -49,9 +50,8 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CardTableViewCell else {
             fatalError("The dequeued cell is not an instance of CardTableViewCell")
         }
-        print("indexPath.row: \(indexPath.row)")
-        print("filteredCards.count: \(filteredCards.count)")
-        
+        //print("indexPath.row: \(indexPath.row)")
+        //print("filteredCards.count: \(filteredCards.count)")
         let card = filteredCards[indexPath.row]
         var cardSuperTypeString: String = ""
         var cardSubTypeString: String = ""
@@ -127,22 +127,41 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
     */
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        //Send the card info to the new view.
+        //print("Segue sender: \(sender)")
+        //print("segue.destination: \(segue.destination)")
+        
+        //Send the card info to the new card view.
         if let cardCell = sender as? CardTableViewCell {
             if let cvc = segue.destination as? CardViewController {
                 let card: Card = filteredCards[cardCell.index]
                 cvc.card = card
             }
         }
+        
+        //Send the card list to the advanced search view.
+        else if sender is UIBarButtonItem {
+            if let navCon = segue.destination as? UINavigationController, let destViewCon = navCon.viewControllers.first as? AdvancedSearchViewController {
+                let cardList: [Card] = cards
+                destViewCon.unfilteredCardList = cardList
+            }
+        }
+        
         else {
             return
         }
     }
     
+    //MARK: Actions
+    //Filter the card list on search
+    @IBAction func unwindToCardList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AdvancedSearchViewController, let filteredList: [Card]? = sourceViewController.filteredCardList {
+            filteredCards = filteredList!
+            self.tableView.reloadData()
+        }
+    }
+
     //MARK: Private Methods
     private func loadSampleCards() {
         let plainsImage = UIImage(named: "Plains")

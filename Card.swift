@@ -64,4 +64,12 @@ class Card {
         }
         return cmc
     }
+    
+    func isMulticolor() -> Bool {
+        let colorArray = color.components(separatedBy: "")
+        if colorArray.count > 1 {
+            return true
+        }
+        return false
+    }
 }

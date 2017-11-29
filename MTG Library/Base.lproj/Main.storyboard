@@ -32,16 +32,17 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="06f-cX-7lS">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="53.666666666666664"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-IY-9Kg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-IY-9Kg">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="33.333333333333336"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="33.329999999999998" id="E1a-k8-biX"/>
                                                                 <constraint firstAttribute="width" constant="320" id="Zui-6B-FSF"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncm-Aw-fRQ" userLabel="Card Type Label">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Text Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncm-Aw-fRQ" userLabel="Card Type Label">
                                                             <rect key="frame" x="0.0" y="33.333333333333336" width="320" height="20.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="320" id="eDZ-iq-aB6"/>
@@ -92,7 +93,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="lPa-ZT-Cl5"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="tGs-QI-8tg">
                             <connections>
-                                <segue destination="Ilr-cO-eMZ" kind="popoverPresentation" popoverAnchorBarButtonItem="tGs-QI-8tg" id="jAy-mC-7dq">
+                                <segue destination="sbI-11-T4m" kind="popoverPresentation" popoverAnchorBarButtonItem="tGs-QI-8tg" id="jAy-mC-7dq">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -103,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="918.84057971014499" y="138.58695652173915"/>
         </scene>
-        <!--View Controller-->
+        <!--Advanced Search-->
         <scene sceneID="gZW-Wy-mOH">
             <objects>
-                <viewController id="Ilr-cO-eMZ" sceneMemberID="viewController">
+                <viewController id="Ilr-cO-eMZ" customClass="AdvancedSearchViewController" customModule="MTG_Library" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gOD-35-std"/>
                         <viewControllerLayoutGuide type="bottom" id="Ch0-zm-cWk"/>
@@ -116,102 +117,177 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-Z6-tte" userLabel="Root Stack View">
-                                <rect key="frame" x="20" y="20" width="374" height="716"/>
+                                <rect key="frame" x="20" y="64" width="374" height="672"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-ac-5fw">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="434"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-ac-5fw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="nRP-23-TUP"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Rules Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tkl-ev-PYK">
-                                        <rect key="frame" x="0.0" y="434" width="374" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Rules Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tkl-ev-PYK">
+                                        <rect key="frame" x="0.0" y="45" width="374" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="3Oz-a8-c6O"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Types" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mz-nq-RkZ">
-                                        <rect key="frame" x="0.0" y="464" width="374" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Types" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mz-nq-RkZ">
+                                        <rect key="frame" x="0.0" y="90" width="374" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="706-fl-xrl"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ivu-hb-bSb" userLabel="Color Stack View">
-                                        <rect key="frame" x="0.0" y="494" width="374" height="112"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="White Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="wfQ-Gz-FJ1">
-                                                <rect key="frame" x="0.0" y="0.0" width="54" height="112"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blue Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="KjP-Lk-coJ">
-                                                <rect key="frame" x="64" y="0.0" width="54" height="112"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Black Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="Wkt-0c-LLN">
-                                                <rect key="frame" x="128" y="0.0" width="54" height="112"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="afW-81-c5E">
-                                                <rect key="frame" x="192" y="0.0" width="54" height="112"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Green Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="9fm-iU-aqg">
-                                                <rect key="frame" x="256" y="0.0" width="54" height="112"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Colorless Unselected" translatesAutoresizingMaskIntoConstraints="NO" id="XYr-Xo-TZN">
-                                                <rect key="frame" x="320" y="0.0" width="54" height="112"/>
-                                            </imageView>
-                                        </subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ivu-hb-bSb" userLabel="Color Stack View" customClass="ColorSearchControl" customModule="MTG_Library" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="135" width="374" height="50"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="symbolCount">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WOX-Rr-Cai" userLabel="And/Or Stack View">
-                                        <rect key="frame" x="0.0" y="606" width="374" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WOX-Rr-Cai" userLabel="Color Options Stack View">
+                                        <rect key="frame" x="0.0" y="185" width="374" height="35"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4z-qY-cNR">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4z-qY-cNR">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Multicolor Only"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dH2-zM-hoT">
-                                                <rect key="frame" x="187" y="0.0" width="187" height="50"/>
+                                                <rect key="frame" x="187" y="0.0" width="187" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Selected Only"/>
                                             </button>
                                         </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="zaf-XH-OgZ" userLabel="Mana Cost Stack View">
+                                        <rect key="frame" x="0.0" y="220" width="374" height="68"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BCU-Ky-x3S">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="58"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mana Cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-dl-C4L">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MTb-lC-tWj">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="29"/>
+                                                        <segments>
+                                                            <segment title="="/>
+                                                            <segment title="&lt;"/>
+                                                            <segment title="&lt;="/>
+                                                            <segment title="&gt;"/>
+                                                            <segment title="&gt;="/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sf5-fA-SME">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="58"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIm-22-k3r" userLabel="Enter CMC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3NN-hm-clF">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="29"/>
+                                                        <segments>
+                                                            <segment title="="/>
+                                                            <segment title="&lt;"/>
+                                                            <segment title="&lt;="/>
+                                                            <segment title="&gt;"/>
+                                                            <segment title="&gt;="/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="06F-Jx-njs" userLabel="P/T Stack View">
+                                        <rect key="frame" x="0.0" y="288" width="374" height="58"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Kf-a2-nlD" userLabel="Power Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="58"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Power" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-eW-hpW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DrI-Ck-ehD">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="29"/>
+                                                        <segments>
+                                                            <segment title="="/>
+                                                            <segment title="&lt;"/>
+                                                            <segment title="&lt;="/>
+                                                            <segment title="&gt;"/>
+                                                            <segment title="&gt;="/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kam-SF-Q2z" userLabel="Toughness Stack View">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="58"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Toughness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1f-iP-jT1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EmN-mM-ZeZ">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="29"/>
+                                                        <segments>
+                                                            <segment title="="/>
+                                                            <segment title="&lt;"/>
+                                                            <segment title="&lt;="/>
+                                                            <segment title="&gt;"/>
+                                                            <segment title="&gt;="/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QbB-Yd-cYg" userLabel="Format Picker">
+                                        <rect key="frame" x="0.0" y="346" width="374" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="CjO-Ag-Lhl"/>
+                                            <constraint firstAttribute="height" constant="50" id="RKM-ki-nJ8"/>
                                         </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zaf-XH-OgZ">
-                                        <rect key="frame" x="0.0" y="656" width="374" height="30"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mana Cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzz-dl-C4L">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIm-22-k3r" userLabel="Enter CMC">
-                                                <rect key="frame" x="187" y="0.0" width="187" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="06F-Jx-njs">
-                                        <rect key="frame" x="0.0" y="686" width="374" height="30"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Power" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-eW-hpW">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Toughness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1f-iP-jT1">
-                                                <rect key="frame" x="187" y="0.0" width="187" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
+                                    </pickerView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h68-X6-Eyi" userLabel="Rarity Picker">
+                                        <rect key="frame" x="0.0" y="396" width="374" height="216"/>
+                                    </pickerView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Flavor Text" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-vj-nAJ">
+                                        <rect key="frame" x="0.0" y="612" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Artist" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PYA-YK-vxH">
+                                        <rect key="frame" x="0.0" y="642" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="bFe-ac-5fw" firstAttribute="top" secondItem="SCA-Z6-tte" secondAttribute="top" id="QNQ-hM-LAx"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,10 +298,44 @@
                             <constraint firstItem="SCA-Z6-tte" firstAttribute="leading" secondItem="U2t-Hb-Qpi" secondAttribute="leadingMargin" id="XZE-ad-FUm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Advanced Search" id="R99-8h-I20">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Z0K-81-ih0">
+                            <connections>
+                                <action selector="cancel:" destination="Ilr-cO-eMZ" id="FCt-5p-azs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sH2-hN-1RL">
+                            <connections>
+                                <segue destination="yoa-uu-otK" kind="unwind" unwindAction="unwindToCardListWithSender:" id="bh5-jw-zsl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="artistText" destination="PYA-YK-vxH" id="1R8-vE-MAS"/>
+                        <outlet property="cardFlavorText" destination="2Nk-vj-nAJ" id="kQl-4t-xPP"/>
+                        <outlet property="cardNameText" destination="bFe-ac-5fw" id="58j-If-OLf"/>
+                        <outlet property="cardRulesText" destination="Tkl-ev-PYK" id="hAd-TX-q0n"/>
+                        <outlet property="cardTypesText" destination="6Mz-nq-RkZ" id="5CF-AA-Jvh"/>
+                        <outlet property="cmcComparison" destination="3NN-hm-clF" id="izk-iP-Yzy"/>
+                        <outlet property="cmcToggle" destination="EIm-22-k3r" id="UYs-yZ-TaF"/>
+                        <outlet property="colorToggle" destination="Ivu-hb-bSb" id="war-8w-uVD"/>
+                        <outlet property="formatSelector" destination="QbB-Yd-cYg" id="15E-TR-zOu"/>
+                        <outlet property="manaCostComparison" destination="MTb-lC-tWj" id="rcz-dK-8km"/>
+                        <outlet property="manaCostToggle" destination="dzz-dl-C4L" id="b5X-Fg-B0s"/>
+                        <outlet property="multicolorToggle" destination="b4z-qY-cNR" id="zwy-1M-iQV"/>
+                        <outlet property="powerComparison" destination="DrI-Ck-ehD" id="nZL-rx-Phm"/>
+                        <outlet property="powerText" destination="dYD-eW-hpW" id="ube-2s-axp"/>
+                        <outlet property="raritySelector" destination="h68-X6-Eyi" id="fjh-Hd-UMv"/>
+                        <outlet property="searchCall" destination="sH2-hN-1RL" id="Nnq-4c-DXu"/>
+                        <outlet property="selectedColorsToggle" destination="dH2-zM-hoT" id="cYZ-AC-XHp"/>
+                        <outlet property="toughnessComparison" destination="EmN-mM-ZeZ" id="uok-pa-NHb"/>
+                        <outlet property="toughnessText" destination="q1f-iP-jT1" id="zGO-VV-NLY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMs-qK-3Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yoa-uu-otK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1903" y="497"/>
+            <point key="canvasLocation" x="2810.144927536232" y="496.46739130434787"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="KNs-xt-qDD">
@@ -349,14 +459,26 @@
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="138.58695652173915"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CQi-hd-fVh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sbI-11-T4m" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qCT-nK-qOh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ilr-cO-eMZ" kind="relationship" relationship="rootViewController" id="ogg-xL-FaF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwi-Qi-fUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902.8985507246377" y="496.46739130434787"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Black Unselected" width="112" height="112"/>
-        <image name="Blue Unselected" width="112" height="112"/>
         <image name="CardBack" width="170" height="235"/>
-        <image name="Colorless Unselected" width="112" height="112"/>
-        <image name="Green Unselected" width="112" height="112"/>
-        <image name="Red Unselected" width="112" height="112"/>
-        <image name="White Unselected" width="112" height="112"/>
     </resources>
 </document>

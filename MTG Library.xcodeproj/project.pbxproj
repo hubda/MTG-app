@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C16871761FC32BF300CA9370 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16871751FC32BF300CA9370 /* AdvancedSearchViewController.swift */; };
+		C16871781FC345AC00CA9370 /* ColorSearchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16871771FC345AC00CA9370 /* ColorSearchControl.swift */; };
 		C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4311FB7B23600755E0C /* CardTableViewController.swift */; };
 		C16AC4341FB7B24F00755E0C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4331FB7B24F00755E0C /* Card.swift */; };
 		C179373E1FABBE4000DCDCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C16871751FC32BF300CA9370 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
+		C16871771FC345AC00CA9370 /* ColorSearchControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSearchControl.swift; sourceTree = "<group>"; };
 		C16AC4311FB7B23600755E0C /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewController.swift; path = ../CardTableViewController.swift; sourceTree = "<group>"; };
 		C16AC4331FB7B24F00755E0C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
 		C179373A1FABBE4000DCDCA6 /* MTG Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTG Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +92,8 @@
 				C179375D1FABF6DC00DCDCA6 /* CardTableViewCell.swift */,
 				C16AC4311FB7B23600755E0C /* CardTableViewController.swift */,
 				C179373F1FABBE4000DCDCA6 /* CardViewController.swift */,
+				C16871751FC32BF300CA9370 /* AdvancedSearchViewController.swift */,
+				C16871771FC345AC00CA9370 /* ColorSearchControl.swift */,
 				C17937411FABBE4000DCDCA6 /* Main.storyboard */,
 				C17937461FABBE4000DCDCA6 /* LaunchScreen.storyboard */,
 				C17937441FABBE4000DCDCA6 /* Assets.xcassets */,
@@ -210,6 +216,8 @@
 			files = (
 				C17937401FABBE4000DCDCA6 /* CardViewController.swift in Sources */,
 				C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */,
+				C16871781FC345AC00CA9370 /* ColorSearchControl.swift in Sources */,
+				C16871761FC32BF300CA9370 /* AdvancedSearchViewController.swift in Sources */,
 				C16AC4341FB7B24F00755E0C /* Card.swift in Sources */,
 				C179375E1FABF6DC00DCDCA6 /* CardTableViewCell.swift in Sources */,
 				C179373E1FABBE4000DCDCA6 /* AppDelegate.swift in Sources */,
