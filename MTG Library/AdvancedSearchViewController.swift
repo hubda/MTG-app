@@ -67,6 +67,13 @@ class AdvancedSearchViewController: UIViewController {
     }
     
     //MARK: Private Functions
+    
+    //Turn a string into an array of types.
+    func separateTypesString(types: String) -> [String] {
+        let typesString = types.components(separatedBy: " ")
+        return typesString
+    }
+    
     //Filter the list of cards by each term and send the filtered card list back.
     func filterCardList() {
         var flags: [Int] = []
@@ -137,16 +144,16 @@ class AdvancedSearchViewController: UIViewController {
             
             //Check that its colors contain the checked colors
             //If the card's colors don't contain any one of the checked colors, continue
-            for i in 0..<colorToggle.symbolCount {
+            colorIterate: for i in 0..<colorToggle.symbolCount {
                 if colorToggle.colorButtons[i].isSelected {
-                    //Check that the card costs a given color cost as long as it dooesn't have devoid
+                    let cardColorArray = card.color.components(separatedBy: "")
+                    print("cardColorArray: \(cardColorArray)")
                     //Default search - Search for the cards that include these colors
                     if !multicolorToggle.isEnabled, !selectedColorsToggle.isEnabled {
-                        let cardColorArray = card.color.components(separatedBy: "")
                         for cardColor in cardColorArray {
                             if colorToggle.colorButtons[i].titleLabel?.text! != cardColor {
                                 //The card does not have one of the selected colors.
-                                continue cardIterate
+                                continue colorIterate
                             }
                         }
                     }
@@ -161,10 +168,18 @@ class AdvancedSearchViewController: UIViewController {
                     
                     //"Selected only" search - Search for the cards that include these colors and no others
                     if selectedColorsToggle.isEnabled {
-                        filteredCardList = filteredCardList.filter { card in
-                            let list = card.color.contains((colorToggle.colorButtons[i].titleLabel?.text!)!)
-                            print("Filtered color list: \(list)")
-                            return list
+                        var failFlag = 0
+                        for cardColor in cardColorArray {
+                            if colorToggle.colorButtons[i].titleLabel?.text! == cardColor {
+                                //The card has one of the selected colors.
+                                failFlag = 0
+                            }
+                            else {
+                                failFlag = 1
+                            }
+                        }
+                        if failFlag == 1 {
+                            continue cardIterate
                         }
                     }
                 }
@@ -178,81 +193,7 @@ class AdvancedSearchViewController: UIViewController {
             //Check that its flavor text matches
             //Check that its artist matches
             //Check that its set matches
-        }
-        
-        //Filter by color, if applicable.
-        /*A card has a certain color if:
-         It costs that color to cast
-         It has a color indicator
-         It doesn't have devoid or other text that says it's colorless
-        */
-        for i in 0..<colorToggle.symbolCount {
-            if colorToggle.colorButtons[i].isSelected {
-                //Check that the card costs a given color cost as long as it dooesn't have devoid
-                //Default search - Search for the cards that include these colors
-                if !multicolorToggle.isEnabled, !selectedColorsToggle.isEnabled {
-                    
-                }
-                
-                //"Multicolor" search - Search for the cards that include these colors and have more than one color
-                if multicolorToggle.isEnabled {
-                    if !card.isMulticolor() {
-                        continue
-                    }
-                }
-                
-                //"Selected only" search - Search for the cards that include these colors and no others
-                if selectedColorsToggle.isEnabled {
-                    filteredCardList = filteredCardList.filter { card in
-                        let list = card.color.contains((colorToggle.colorButtons[i].titleLabel?.text!)!)
-                        print("Filtered color list: \(list)")
-                        return list
-                    }
-                }
-                //Check the card's color indicator
-                /*switch i {
-                case 0:
-                    //Filter by white cards
-                    filteredCardList = filteredCardList.filter { card in
-                        let list = card.color.contains((colorToggle.colorButtons[i].titleLabel?.text!)!)
-                        print("Filtered white list: \(list)")
-                        return list
-                    }
-                case 1:
-                    //Filter by blue cards
-                    filteredCardList = filteredCardList.filter { card in
-                        let list = card.color.contains((colorToggle.colorButtons[i].titleLabel?.text!)!)
-                        print("Filtered blue list: \(list)")
-                        return list
-                    }
-                case 2:
-                    //Filter by black cards
-                case 3:
-                    //Filter by red cards
-                case 4:
-                    //Filter by green cards
-                case 5:
-                    //Filter by colorless cards
-                default:
-                    //Don't filter by color
-                }*/
             }
-            
-            if let searchText = cardTypesText.text, !(cardTypesText.text?.isEmpty)! {
-                filteredCardList = filteredCardList.filter { card in
-                    let list = card.superType.contains(searchText)
-                    print("Filtered types list: \(list)")
-                    return list
-                }
-            }
-        }
-        
-        }
-        
-        //Turn a string into an array of types.
-        func separateTypesString(types: String) -> [String] {
-            let typesString = types.components(separatedBy: " ")
-            return typesString
         }
     }
 }

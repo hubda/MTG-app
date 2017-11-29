@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C16871761FC32BF300CA9370 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16871751FC32BF300CA9370 /* AdvancedSearchViewController.swift */; };
 		C16871781FC345AC00CA9370 /* ColorSearchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16871771FC345AC00CA9370 /* ColorSearchControl.swift */; };
+		C168717C1FCE6BB100CA9370 /* Pictures in Resources */ = {isa = PBXBuildFile; fileRef = C168717B1FCE6BB100CA9370 /* Pictures */; };
 		C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4311FB7B23600755E0C /* CardTableViewController.swift */; };
 		C16AC4341FB7B24F00755E0C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16AC4331FB7B24F00755E0C /* Card.swift */; };
 		C179373E1FABBE4000DCDCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179373D1FABBE4000DCDCA6 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		C16871751FC32BF300CA9370 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
 		C16871771FC345AC00CA9370 /* ColorSearchControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSearchControl.swift; sourceTree = "<group>"; };
+		C168717B1FCE6BB100CA9370 /* Pictures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Pictures; path = ../../Documents/Pictures; sourceTree = "<group>"; };
 		C16AC4311FB7B23600755E0C /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewController.swift; path = ../CardTableViewController.swift; sourceTree = "<group>"; };
 		C16AC4331FB7B24F00755E0C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
 		C179373A1FABBE4000DCDCA6 /* MTG Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTG Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				C179373C1FABBE4000DCDCA6 /* MTG Library */,
 				C17937511FABBE4100DCDCA6 /* MTG LibraryTests */,
 				C179373B1FABBE4000DCDCA6 /* Products */,
+				C168717B1FCE6BB100CA9370 /* Pictures */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +200,7 @@
 				C17937481FABBE4000DCDCA6 /* LaunchScreen.storyboard in Resources */,
 				C17937451FABBE4000DCDCA6 /* Assets.xcassets in Resources */,
 				C17937431FABBE4000DCDCA6 /* Main.storyboard in Resources */,
+				C168717C1FCE6BB100CA9370 /* Pictures in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
