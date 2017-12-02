@@ -38,8 +38,8 @@ class AdvancedSearchViewController: UIViewController {
         super.viewDidLoad()
 
         //Set the filtered card list equal to the unfiltered list.
-        filteredCardList = unfilteredCardList
-        print("Unfiltered list: \(filteredCardList)")
+        //filteredCardList = unfilteredCardList
+        print("Unfiltered list: \(unfilteredCardList)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,19 +76,17 @@ class AdvancedSearchViewController: UIViewController {
     
     //Filter the list of cards by each term and send the filtered card list back.
     func filterCardList() {
-        var flags: [Int] = []
         //filteredCardList = unfilteredCardList
         //For each card in the list, check its propeies against the search terms
-        cardIterate: for card in filteredCardList {
+        cardIterate: for card in unfilteredCardList {
             //Check that its name contains the name string
             if let searchText = cardNameText.text, !(cardNameText.text?.isEmpty)! {
                 if card.name.lowercased().contains(searchText) {
                     filteredCardList.append(card)
-                    print("Filtered name list: \(filteredCardList)")
-                    flags.append(1)
+                    //print("\(card.name) passes the name filter.")
                 }
                 else {
-                    flags.append(0)
+                    //print("\(card.name) does not pass the name filter.")
                     continue cardIterate
                 }
             }
@@ -97,50 +95,60 @@ class AdvancedSearchViewController: UIViewController {
             if let searchText = cardRulesText.text, !(cardRulesText.text?.isEmpty)! {
                 if (card.rulesText?.lowercased().contains(searchText))! {
                     filteredCardList.append(card)
-                    print("Filtered rules text list: \(filteredCardList)")
-                    flags.append(1)
+                    //print("\(card.name) passes the rules text filter.")
                 }
                 else {
-                    flags.append(0)
+                    //print("\(card.name) does not pass the rules text filter.")
                     continue cardIterate
                 }
             }
 
             //Check that its supertypes list contains the types string
-            if let searchText =  cardTypesText.text, !(cardTypesText.text?.isEmpty)! {
+            /*if let searchText = cardTypesText.text, !(cardTypesText.text?.isEmpty)! {
                 let searchTypesArray = separateTypesString(types: searchText)
-                for typeInSearch in searchTypesArray {
+                superSearchLoop: for typeInSearch in searchTypesArray {
+                    flag = 0
                     for typeInCard in card.superType {
                         if typeInCard.lowercased().contains(typeInSearch) {
-                            filteredCardList.append(card)
-                            print("Filtered supertype list: \(filteredCardList)")
+                            //filteredCardList.append(card)
                             flags.append(1)
+                            flag = 1
+                            typesPassFlag = 1
+                            continue superSearchLoop
                         }
-                        else {
-                            flags.append(0)
-                            continue cardIterate
-                        }
+                    }
+                    if flag == 0 {
+                        print("\(card.name) does not pass the supertypes filter.")
+                        continue cardIterate
                     }
                 }
             }
+            flag = 0
+            print("\(card.name) passes the supertypes filter.")
 
             //Check that its subtypes list contains the types string
-            if let searchText =  cardTypesText.text, !(cardTypesText.text?.isEmpty)!, !(card.subType?.isEmpty)! {
+            if let searchText = cardTypesText.text, !(cardTypesText.text?.isEmpty)! {
                 let searchTypesArray = separateTypesString(types: searchText)
-                for typeInSearch in searchTypesArray {
+                subSearchLoop: for typeInSearch in searchTypesArray {
+                    flag = 0
                     for typeInCard in card.subType! {
                         if typeInCard.lowercased().contains(typeInSearch) {
-                            filteredCardList.append(card)
-                            print("Filtered subtype list: \(filteredCardList)")
+                            if typesPassFlag == 1 {
+                                filteredCardList.append(card)
+                            }
                             flags.append(1)
+                            flag = 1
+                            continue subSearchLoop
                         }
-                        else {
-                            flags.append(0)
-                            continue cardIterate
-                        }
+                    }
+                    if flag == 0 {
+                        print("\(card.name) does not pass the subtypes filter.")
+                        continue cardIterate
                     }
                 }
             }
+            flag = 0
+            print("\(card.name) passes the subtypes filter.")*/
             
             //Check that its colors contain the checked colors
             //If the card's colors don't contain any one of the checked colors, continue
@@ -153,6 +161,7 @@ class AdvancedSearchViewController: UIViewController {
                         for cardColor in cardColorArray {
                             if colorToggle.colorButtons[i].titleLabel?.text! != cardColor {
                                 //The card does not have one of the selected colors.
+                                print("\(card.name) does not have the color \(String(describing: colorToggle.colorButtons[i].titleLabel?.text!))")
                                 continue colorIterate
                             }
                         }
@@ -175,6 +184,7 @@ class AdvancedSearchViewController: UIViewController {
                                 failFlag = 0
                             }
                             else {
+                                //The card is missing one of the selected colors.
                                 failFlag = 1
                             }
                         }
@@ -183,8 +193,16 @@ class AdvancedSearchViewController: UIViewController {
                         }
                     }
                 }
+            }
             
-            //Check that its mana cost matches
+            //Check that its mana cost matches depending on the equality settings
+            /*switch <#value#> {
+            case <#pattern#>:
+                <#code#>
+            default:
+                <#code#>
+            }*/
+            
             //Check that its cmc matches
             //Check that its power matches
             //Check that its toughness matches
@@ -193,7 +211,6 @@ class AdvancedSearchViewController: UIViewController {
             //Check that its flavor text matches
             //Check that its artist matches
             //Check that its set matches
-            }
         }
     }
 }

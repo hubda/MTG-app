@@ -1,15 +1,20 @@
 //
-//  CardTableViewController.swift
+//  NewCardTableViewController.swift
 //  MTG Library
 //
-//  Created by Daniel Huber on 11/11/17.
+//  Created by Daniel Huber on 12/1/17.
 //  Copyright © 2017 Daniel Huber. All rights reserved.
 //
 
 import UIKit
 
-class CardTableViewController: UITableViewController, UISearchResultsUpdating {
+class NewCardTableViewController: UIViewController {
     //MARK: Properties
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var cardTable: UITableView!
+    @IBOutlet weak var leftMenu: UIView!
+    @IBOutlet weak var menuLeadingConstraint: NSLayoutConstraint!
+    var menuIsHidden = true
     var cards = [Card]()
     var filteredCards = [Card]()
     let searchController = UISearchController(searchResultsController: nil)
@@ -21,29 +26,32 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
         //Load the sample cards.
         loadSampleCards()
         
-        //Configure the search bar.
+        /*//Configure the search bar.
         filteredCards = cards
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
+        //tableView.tableHeaderView = searchController.searchBar*/
+        
+        //Set the initial left menu position.
+        menuLeadingConstraint.constant = -170
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
+    
+    /*// MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredCards.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "CardTableViewCell"
@@ -85,48 +93,10 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //Set the height of the table cells.
         return 70
-    }
-    
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Actions to take place when the cell is clicked.
     }*/
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         //print("Segue sender: \(sender)")
@@ -139,36 +109,48 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
                 cvc.card = card
             }
         }
-        
-        //Send the card list depending on the destination view controller.
+            
+            //Send the card list depending on the destination view controller.
         else if sender is UIBarButtonItem {
             //Send the card list to the advanced search view.
             if let navCon = segue.destination as? UINavigationController, let destViewCon = navCon.viewControllers.first as? AdvancedSearchViewController {
                 let cardList: [Card] = cards
                 destViewCon.unfilteredCardList = cardList
             }
-            
-            //Send the card list to the trade view.
+                
+                //Send the card list to the trade view.
             else if let navCon = segue.destination as? UINavigationController, let destViewCon = navCon.viewControllers.first as? TradeViewController {
                 let cardList: [Card] = cards
                 destViewCon.cards = cardList
             }
         }
-        
+            
         else {
             return
         }
     }
-    
+
     //MARK: Actions
-    //Filter the card list on search
+    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+        if menuIsHidden {
+            menuLeadingConstraint.constant = 0
+            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+        }
+        else {
+            menuLeadingConstraint.constant = -170
+            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+        }
+        menuIsHidden = !menuIsHidden
+    }
+    
+    /*//Filter the card list on search
     @IBAction func unwindToCardList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AdvancedSearchViewController, let filteredList: [Card]? = sourceViewController.filteredCardList {
             filteredCards = filteredList!
             self.tableView.reloadData()
         }
-    }
-
+    }*/
+    
     //MARK: Private Methods
     private func loadSampleCards() {
         let plainsImage = UIImage(named: "Plains")
@@ -229,7 +211,7 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
         cards += [plains, island, swamp, mountain, forest, animar]
     }
     
-    //Update the search results whenever as new character is entered.
+    /*//Update the search results whenever as new character is entered.
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredCards = cards.filter { card in
@@ -242,5 +224,5 @@ class CardTableViewController: UITableViewController, UISearchResultsUpdating {
             filteredCards = cards
         }
         tableView.reloadData()
-    }
+    }*/
 }

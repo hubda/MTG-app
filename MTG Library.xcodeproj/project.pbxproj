@@ -19,6 +19,9 @@
 		C17937481FABBE4000DCDCA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17937461FABBE4000DCDCA6 /* LaunchScreen.storyboard */; };
 		C17937531FABBE4100DCDCA6 /* MTG_LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17937521FABBE4100DCDCA6 /* MTG_LibraryTests.swift */; };
 		C179375E1FABF6DC00DCDCA6 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179375D1FABF6DC00DCDCA6 /* CardTableViewCell.swift */; };
+		C1EAC0E41FD06932003CDA34 /* TradeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAC0E31FD06932003CDA34 /* TradeTableViewCell.swift */; };
+		C1EAC0E81FD0976C003CDA34 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAC0E71FD0976C003CDA34 /* TradeViewController.swift */; };
+		C1EAC0EE1FD211C3003CDA34 /* NewCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EAC0ED1FD211C3003CDA34 /* NewCardTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		C17937521FABBE4100DCDCA6 /* MTG_LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTG_LibraryTests.swift; sourceTree = "<group>"; };
 		C17937541FABBE4100DCDCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C179375D1FABF6DC00DCDCA6 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		C1EAC0E31FD06932003CDA34 /* TradeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeTableViewCell.swift; sourceTree = "<group>"; };
+		C1EAC0E71FD0976C003CDA34 /* TradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TradeViewController.swift; path = ../TradeViewController.swift; sourceTree = "<group>"; };
+		C1EAC0ED1FD211C3003CDA34 /* NewCardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCardTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,9 @@
 				C179373F1FABBE4000DCDCA6 /* CardViewController.swift */,
 				C16871751FC32BF300CA9370 /* AdvancedSearchViewController.swift */,
 				C16871771FC345AC00CA9370 /* ColorSearchControl.swift */,
+				C1EAC0E31FD06932003CDA34 /* TradeTableViewCell.swift */,
+				C1EAC0E71FD0976C003CDA34 /* TradeViewController.swift */,
+				C1EAC0ED1FD211C3003CDA34 /* NewCardTableViewController.swift */,
 				C17937411FABBE4000DCDCA6 /* Main.storyboard */,
 				C17937461FABBE4000DCDCA6 /* LaunchScreen.storyboard */,
 				C17937441FABBE4000DCDCA6 /* Assets.xcassets */,
@@ -218,9 +227,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EAC0E81FD0976C003CDA34 /* TradeViewController.swift in Sources */,
 				C17937401FABBE4000DCDCA6 /* CardViewController.swift in Sources */,
 				C16AC4321FB7B23600755E0C /* CardTableViewController.swift in Sources */,
 				C16871781FC345AC00CA9370 /* ColorSearchControl.swift in Sources */,
+				C1EAC0EE1FD211C3003CDA34 /* NewCardTableViewController.swift in Sources */,
+				C1EAC0E41FD06932003CDA34 /* TradeTableViewCell.swift in Sources */,
 				C16871761FC32BF300CA9370 /* AdvancedSearchViewController.swift in Sources */,
 				C16AC4341FB7B24F00755E0C /* Card.swift in Sources */,
 				C179375E1FABF6DC00DCDCA6 /* CardTableViewCell.swift in Sources */,
